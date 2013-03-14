@@ -1,0 +1,173 @@
+body {
+    width: 1050px;
+    margin: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+    font-family: "Verdana", Sans-Serif;
+    font-size: 12px;
+    
+    background-color: #000000;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    width: 100px;
+    height: 29px;
+    margin-right: 15px;
+    padding-top: 11px;
+    
+    text-decoration: none;
+    color: #ffffff;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+li a:hover {
+    background-color: #505050;
+}
+
+#body_box {
+    background-color: #dadada;
+}
+
+#navigation_box {
+    width: 1030px;
+    height: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 15px;
+    
+    background-color: #191919;
+}
+
+.advertisement_box {
+    width: 728px;
+    height: 90px;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+#content_box {
+    width: 1050px;
+    margin: auto;
+    min-height: 1200px;
+    padding-bottom: 40px;
+}
+
+#main_content_box {
+    display: inline-block;
+    width: 820px;
+    height: inherit;
+    margin: 0 0 0 10px;
+    padding: 0;
+    min-height: 900px;
+    vertical-align: top;
+}
+
+#side_box {
+    display: inline-block;
+    width: 200px;
+    max-width: 200px;
+    margin: 0 0 0 5px;
+    padding: 0;
+    min-height: 900px;
+    vertical-align: top;
+}
+
+#clicksor {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+#social_plugins {
+    height: 100px;
+    width: 728px;
+    margin: auto;
+    margin-bottom: 10px;
+    padding-left: 90px;
+}
+
+#facebook_like_box {
+    display: inline-block;
+    float: left;
+    width: 450px;
+    height: 80px;
+    padding: 0;
+    margin: 0;
+    margin-right: 30px;
+}
+
+#facebook_like {
+    width: 450px;
+    height: 80px;
+    padding: 10px;
+    margin: 0;
+    
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    
+    background-color: #f4f4f4;
+}
+
+#twitter_box {
+    display: inline-block;
+    float: left;
+    width: 140px;
+    height: 80px;
+    padding: 0;
+    margin: 0;
+}
+
+#twitter {
+    width: 140px;
+    height: 80px;
+    padding: 10px;
+    margin: 0;
+    
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    
+    background-color: #f4f4f4;
+}
+
+#actual_content {
+    width: 800px;
+    padding: 10px;
+    margin-bottom: 10px;
+    
+    background-color: #0066CC;
+}
+
+#footer_box {
+    height: 160px;
+    
+    padding: 10px;
+    
+    font-size: 10px;
+    color: #C9C9C9;
+    
+    text-align: right;
+    
+    background-color: #191919;
+}
+
+#footer_content a {
+    color: #FFFFFF !important;
+}
