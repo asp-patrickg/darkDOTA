@@ -319,6 +319,8 @@ class Helpers_Dota {
                     $ids_string .= ",";
                 }
             }
+        } else {
+            $ids_string .= Helpers_Dota::get64BitSteamID($ids);
         }
         
         $args = array(
