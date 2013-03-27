@@ -161,6 +161,9 @@ class Helpers_Dota {
             case 5:
                 return "Team Match";
                 break;
+            default:
+                return "Unknown";
+                break;
         }
     }
     
@@ -170,7 +173,7 @@ class Helpers_Dota {
      * @param int $match_id
      * @return Object 
      */
-    public static function getMatchDetails($match_id) {
+    private static function getMatch($match_id) {
         $args = array(
             "match_id" => $match_id
         );
@@ -179,6 +182,26 @@ class Helpers_Dota {
         $response = json_decode($response);
         
         return $response;
+    }
+    
+    /**
+     * Gets the details of a match.
+     * 
+     * @param int $match_id
+     * @return Object 
+     */
+    public static function getMatchDetails($match_id) {
+        $match = Helpers_Dota::getMatch($match_id);
+        
+        if(is_object($match)) {
+            if(property_exists($match, 'result')) {
+                return $match->result;
+            } else {
+                return null;
+            }
+        } else {
+            return null;
+        }
     }
     
     /**
@@ -200,6 +223,9 @@ class Helpers_Dota {
                 break;
             case null:
                 return "Bot";
+                break;
+            default:
+                return "Unknown";
                 break;
         }
     }
@@ -250,6 +276,9 @@ class Helpers_Dota {
                 break;
             case 13:
                 return "New Player Pool";
+                break;
+            default:
+                return "Unknown";
                 break;
         }
     }

@@ -15,7 +15,7 @@ class Dota_Player {
     var $time_created;
     var $loc_country_code;
     
-    public function Player($id) {
+    public function __construct($id) {
         $player = Helpers_Dota::getPlayerSummaries($id);
         
         foreach($player as $p) {

@@ -1,0 +1,87 @@
+<?php defined('SYSPATH') OR die('No direct script access.'); ?>
+
+2013-03-25 00:51:52 --- CRITICAL: ErrorException [ 1 ]: Cannot access parent:: when current class scope has no parent ~ APPPATH\classes\Dota\Player.php [ 19 ] in :
+2013-03-25 00:51:52 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in :
+2013-03-25 04:29:23 --- CRITICAL: ErrorException [ 1 ]: Cannot use object of type Dota_Player as array ~ APPPATH\views\sub\home.php [ 5 ] in :
+2013-03-25 04:29:23 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in :
+2013-03-25 04:29:45 --- CRITICAL: ErrorException [ 8 ]: Undefined property: Dota_Player::$personaname ~ APPPATH\views\sub\home.php [ 5 ] in C:\xampp\htdocs\darkdota\application\views\sub\home.php:5
+2013-03-25 04:29:45 --- DEBUG: #0 C:\xampp\htdocs\darkdota\application\views\sub\home.php(5): Kohana_Core::error_handler(8, 'Undefined prope...', 'C:\xampp\htdocs...', 5, Array)
+#1 C:\xampp\htdocs\darkdota\system\classes\Kohana\View.php(61): include('C:\xampp\htdocs...')
+#2 C:\xampp\htdocs\darkdota\system\classes\Kohana\View.php(348): Kohana_View::capture('C:\xampp\htdocs...', Array)
+#3 C:\xampp\htdocs\darkdota\system\classes\Kohana\View.php(228): Kohana_View->render()
+#4 C:\xampp\htdocs\darkdota\application\views\frame.php(42): Kohana_View->__toString()
+#5 C:\xampp\htdocs\darkdota\system\classes\Kohana\View.php(61): include('C:\xampp\htdocs...')
+#6 C:\xampp\htdocs\darkdota\system\classes\Kohana\View.php(348): Kohana_View::capture('C:\xampp\htdocs...', Array)
+#7 C:\xampp\htdocs\darkdota\system\classes\Kohana\View.php(228): Kohana_View->render()
+#8 C:\xampp\htdocs\darkdota\system\classes\Kohana\Response.php(160): Kohana_View->__toString()
+#9 C:\xampp\htdocs\darkdota\application\classes\Controller\home.php(9): Kohana_Response->body(Object(View))
+#10 C:\xampp\htdocs\darkdota\system\classes\Kohana\Controller.php(84): Controller_Home->action_index()
+#11 [internal function]: Kohana_Controller->execute()
+#12 C:\xampp\htdocs\darkdota\system\classes\Kohana\Request\Client\Internal.php(97): ReflectionMethod->invoke(Object(Controller_Home))
+#13 C:\xampp\htdocs\darkdota\system\classes\Kohana\Request\Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#14 C:\xampp\htdocs\darkdota\system\classes\Kohana\Request.php(990): Kohana_Request_Client->execute(Object(Request))
+#15 C:\xampp\htdocs\darkdota\index.php(118): Kohana_Request->execute()
+#16 {main} in C:\xampp\htdocs\darkdota\application\views\sub\home.php:5
+2013-03-25 04:29:48 --- CRITICAL: ErrorException [ 8 ]: Undefined property: Dota_Player::$personaname ~ APPPATH\views\sub\home.php [ 5 ] in C:\xampp\htdocs\darkdota\application\views\sub\home.php:5
+2013-03-25 04:29:48 --- DEBUG: #0 C:\xampp\htdocs\darkdota\application\views\sub\home.php(5): Kohana_Core::error_handler(8, 'Undefined prope...', 'C:\xampp\htdocs...', 5, Array)
+#1 C:\xampp\htdocs\darkdota\system\classes\Kohana\View.php(61): include('C:\xampp\htdocs...')
+#2 C:\xampp\htdocs\darkdota\system\classes\Kohana\View.php(348): Kohana_View::capture('C:\xampp\htdocs...', Array)
+#3 C:\xampp\htdocs\darkdota\system\classes\Kohana\View.php(228): Kohana_View->render()
+#4 C:\xampp\htdocs\darkdota\application\views\frame.php(42): Kohana_View->__toString()
+#5 C:\xampp\htdocs\darkdota\system\classes\Kohana\View.php(61): include('C:\xampp\htdocs...')
+#6 C:\xampp\htdocs\darkdota\system\classes\Kohana\View.php(348): Kohana_View::capture('C:\xampp\htdocs...', Array)
+#7 C:\xampp\htdocs\darkdota\system\classes\Kohana\View.php(228): Kohana_View->render()
+#8 C:\xampp\htdocs\darkdota\system\classes\Kohana\Response.php(160): Kohana_View->__toString()
+#9 C:\xampp\htdocs\darkdota\application\classes\Controller\home.php(9): Kohana_Response->body(Object(View))
+#10 C:\xampp\htdocs\darkdota\system\classes\Kohana\Controller.php(84): Controller_Home->action_index()
+#11 [internal function]: Kohana_Controller->execute()
+#12 C:\xampp\htdocs\darkdota\system\classes\Kohana\Request\Client\Internal.php(97): ReflectionMethod->invoke(Object(Controller_Home))
+#13 C:\xampp\htdocs\darkdota\system\classes\Kohana\Request\Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#14 C:\xampp\htdocs\darkdota\system\classes\Kohana\Request.php(990): Kohana_Request_Client->execute(Object(Request))
+#15 C:\xampp\htdocs\darkdota\index.php(118): Kohana_Request->execute()
+#16 {main} in C:\xampp\htdocs\darkdota\application\views\sub\home.php:5
+2013-03-25 04:46:08 --- CRITICAL: ErrorException [ 8 ]: Undefined variable: player ~ APPPATH\classes\Helpers\dota.php [ 195 ] in C:\xampp\htdocs\darkdota\application\classes\Helpers\dota.php:195
+2013-03-25 04:46:08 --- DEBUG: #0 C:\xampp\htdocs\darkdota\application\classes\Helpers\dota.php(195): Kohana_Core::error_handler(8, 'Undefined varia...', 'C:\xampp\htdocs...', 195, Array)
+#1 C:\xampp\htdocs\darkdota\application\classes\Dota\match.php(5): Helpers_Dota::getMatchDetails(Object(stdClass))
+#2 C:\xampp\htdocs\darkdota\application\views\sub\home.php(4): Dota_Match->__construct(1)
+#3 C:\xampp\htdocs\darkdota\system\classes\Kohana\View.php(61): include('C:\xampp\htdocs...')
+#4 C:\xampp\htdocs\darkdota\system\classes\Kohana\View.php(348): Kohana_View::capture('C:\xampp\htdocs...', Array)
+#5 C:\xampp\htdocs\darkdota\system\classes\Kohana\View.php(228): Kohana_View->render()
+#6 C:\xampp\htdocs\darkdota\application\views\frame.php(42): Kohana_View->__toString()
+#7 C:\xampp\htdocs\darkdota\system\classes\Kohana\View.php(61): include('C:\xampp\htdocs...')
+#8 C:\xampp\htdocs\darkdota\system\classes\Kohana\View.php(348): Kohana_View::capture('C:\xampp\htdocs...', Array)
+#9 C:\xampp\htdocs\darkdota\system\classes\Kohana\View.php(228): Kohana_View->render()
+#10 C:\xampp\htdocs\darkdota\system\classes\Kohana\Response.php(160): Kohana_View->__toString()
+#11 C:\xampp\htdocs\darkdota\application\classes\Controller\home.php(9): Kohana_Response->body(Object(View))
+#12 C:\xampp\htdocs\darkdota\system\classes\Kohana\Controller.php(84): Controller_Home->action_index()
+#13 [internal function]: Kohana_Controller->execute()
+#14 C:\xampp\htdocs\darkdota\system\classes\Kohana\Request\Client\Internal.php(97): ReflectionMethod->invoke(Object(Controller_Home))
+#15 C:\xampp\htdocs\darkdota\system\classes\Kohana\Request\Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#16 C:\xampp\htdocs\darkdota\system\classes\Kohana\Request.php(990): Kohana_Request_Client->execute(Object(Request))
+#17 C:\xampp\htdocs\darkdota\index.php(118): Kohana_Request->execute()
+#18 {main} in C:\xampp\htdocs\darkdota\application\classes\Helpers\dota.php:195
+2013-03-25 04:46:13 --- CRITICAL: ErrorException [ 8 ]: Undefined variable: player ~ APPPATH\classes\Helpers\dota.php [ 195 ] in C:\xampp\htdocs\darkdota\application\classes\Helpers\dota.php:195
+2013-03-25 04:46:13 --- DEBUG: #0 C:\xampp\htdocs\darkdota\application\classes\Helpers\dota.php(195): Kohana_Core::error_handler(8, 'Undefined varia...', 'C:\xampp\htdocs...', 195, Array)
+#1 C:\xampp\htdocs\darkdota\application\classes\Dota\match.php(5): Helpers_Dota::getMatchDetails(Object(stdClass))
+#2 C:\xampp\htdocs\darkdota\application\views\sub\home.php(4): Dota_Match->__construct(1)
+#3 C:\xampp\htdocs\darkdota\system\classes\Kohana\View.php(61): include('C:\xampp\htdocs...')
+#4 C:\xampp\htdocs\darkdota\system\classes\Kohana\View.php(348): Kohana_View::capture('C:\xampp\htdocs...', Array)
+#5 C:\xampp\htdocs\darkdota\system\classes\Kohana\View.php(228): Kohana_View->render()
+#6 C:\xampp\htdocs\darkdota\application\views\frame.php(42): Kohana_View->__toString()
+#7 C:\xampp\htdocs\darkdota\system\classes\Kohana\View.php(61): include('C:\xampp\htdocs...')
+#8 C:\xampp\htdocs\darkdota\system\classes\Kohana\View.php(348): Kohana_View::capture('C:\xampp\htdocs...', Array)
+#9 C:\xampp\htdocs\darkdota\system\classes\Kohana\View.php(228): Kohana_View->render()
+#10 C:\xampp\htdocs\darkdota\system\classes\Kohana\Response.php(160): Kohana_View->__toString()
+#11 C:\xampp\htdocs\darkdota\application\classes\Controller\home.php(9): Kohana_Response->body(Object(View))
+#12 C:\xampp\htdocs\darkdota\system\classes\Kohana\Controller.php(84): Controller_Home->action_index()
+#13 [internal function]: Kohana_Controller->execute()
+#14 C:\xampp\htdocs\darkdota\system\classes\Kohana\Request\Client\Internal.php(97): ReflectionMethod->invoke(Object(Controller_Home))
+#15 C:\xampp\htdocs\darkdota\system\classes\Kohana\Request\Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#16 C:\xampp\htdocs\darkdota\system\classes\Kohana\Request.php(990): Kohana_Request_Client->execute(Object(Request))
+#17 C:\xampp\htdocs\darkdota\index.php(118): Kohana_Request->execute()
+#18 {main} in C:\xampp\htdocs\darkdota\application\classes\Helpers\dota.php:195
+2013-03-25 23:53:51 --- CRITICAL: ErrorException [ 1 ]: Cannot use object of type stdClass as array ~ APPPATH\classes\Dota\match.php [ 21 ] in :
+2013-03-25 23:53:51 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in :
