@@ -7,7 +7,7 @@
     foreach($players as $player) {
         if($player->account_id == "86720185") {
             var_dump($player);
-            echo "<p>" . Helpers_Dota::getHeroName($player->hero_id) . "</p>";
+            echo "<img src=\"" . Helpers_Dota::getHeroImage($player->hero_id, false) . "\" alt=\"" . Helpers_Dota::getHeroName($player->hero_id) . "\" title=\"" . Helpers_Dota::getHeroName($player->hero_id) . "\" />";
             echo "<img src=\"{$player->user->avatar}\" />";
         }
     }

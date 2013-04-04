@@ -132,6 +132,30 @@ class Helpers_Dota {
         return "No Hero";
     }
     
+    public static function getHeroImage($id, $full = true) {
+        //We check if the heroes database has already been loaded on the session.
+        $session = Session::instance();
+        
+        if($session->get('heroes') == null) {
+            Helpers_Dota::getHeroesDatabase();
+        }
+        
+        $heroes = $session->get('heroes');
+        $name = null;
+        
+        foreach($heroes as $hero) {
+            if($hero->id == $id) {
+                $name = str_replace("npc_dota_hero_", "", $hero->name);
+            }
+        }
+        
+        if($full) {
+            return "http://media.steampowered.com/apps/dota2/images/heroes/{$name}_full.png";
+        } else {
+            return "http://media.steampowered.com/apps/dota2/images/heroes/{$name}_sb.png";
+        }
+    }
+    
     /**
      * Gets the name of the lobby type.
      * 
