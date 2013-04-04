@@ -132,6 +132,13 @@ class Helpers_Dota {
         return "No Hero";
     }
     
+    /**
+     * Gets the image URL for a hero.
+     * 
+     * @param int $id
+     * @param boolean $full
+     * @return String 
+     */
     public static function getHeroImage($id, $full = true) {
         //We check if the heroes database has already been loaded on the session.
         $session = Session::instance();
@@ -444,6 +451,21 @@ class Helpers_Dota {
             }
         } else {
             return null;
+        }
+    }
+    
+    public static function getUnknownProfile($size = 0) {
+        switch($size) {
+            case 1:
+                return "resources/unknown_medium.png";
+                break;
+            case 2:
+                return "resources/unknown_full.png";
+                break;
+            case 0:
+            default:
+                return "resources/unknown.png";
+                break;
         }
     }
 }

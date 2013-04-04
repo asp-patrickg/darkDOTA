@@ -3,6 +3,7 @@
  * Application Strings
  */
 define("APP_NAME", "darkDOTA");
+define("ANONYMOUS", "Anonymous");
 
 /**
  * Footer Strings

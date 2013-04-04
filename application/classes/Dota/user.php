@@ -16,24 +16,32 @@ class Dota_User {
     var $loc_country_code;
     
     public function __construct($id) {
-        $player = Helpers_Dota::getPlayerSummaries($id);
-        
-        foreach($player as $p) {
-            $this->persona_name = Helpers_Dota::getPlayerDetail($p, 'personaname');
-            $this->steam_id = Helpers_Dota::getPlayerDetail($p, 'steamid');
-            $this->visibility_state = Helpers_Dota::getPlayerDetail($p, 'communityvisibilitystate');
-            $this->profile_state = Helpers_Dota::getPlayerDetail($p, 'profilestate');
-            $this->last_log_off = Helpers_Dota::getPlayerDetail($p, 'lastlogoff');
-            $this->profile_url = Helpers_Dota::getPlayerDetail($p, 'profileurl');
-            $this->avatar = Helpers_Dota::getPlayerDetail($p, 'avatar');
-            $this->avatar_medium = Helpers_Dota::getPlayerDetail($p, 'avatarmedium');
-            $this->avatar_full = Helpers_Dota::getPlayerDetail($p, 'avatarfull');
-            $this->persona_state = Helpers_Dota::getPlayerDetail($p, 'personastate');
-            $this->real_name = Helpers_Dota::getPlayerDetail($p, 'realname');
-            $this->primary_clan_id = Helpers_Dota::getPlayerDetail($p, 'primaryclanid');
-            $this->time_created = Helpers_Dota::getPlayerDetail($p, 'timecreated');
-            $this->loc_country_code = Helpers_Dota::getPlayerDetail($p, 'loccountrycode');
+        if($id != "4294967295") {
+            $player = Helpers_Dota::getPlayerSummaries($id);
+
+            foreach($player as $p) {
+                $this->persona_name = Helpers_Dota::getPlayerDetail($p, 'personaname');
+                $this->steam_id = Helpers_Dota::getPlayerDetail($p, 'steamid');
+                $this->visibility_state = Helpers_Dota::getPlayerDetail($p, 'communityvisibilitystate');
+                $this->profile_state = Helpers_Dota::getPlayerDetail($p, 'profilestate');
+                $this->last_log_off = Helpers_Dota::getPlayerDetail($p, 'lastlogoff');
+                $this->profile_url = Helpers_Dota::getPlayerDetail($p, 'profileurl');
+                $this->avatar = Helpers_Dota::getPlayerDetail($p, 'avatar');
+                $this->avatar_medium = Helpers_Dota::getPlayerDetail($p, 'avatarmedium');
+                $this->avatar_full = Helpers_Dota::getPlayerDetail($p, 'avatarfull');
+                $this->persona_state = Helpers_Dota::getPlayerDetail($p, 'personastate');
+                $this->real_name = Helpers_Dota::getPlayerDetail($p, 'realname');
+                $this->primary_clan_id = Helpers_Dota::getPlayerDetail($p, 'primaryclanid');
+                $this->time_created = Helpers_Dota::getPlayerDetail($p, 'timecreated');
+                $this->loc_country_code = Helpers_Dota::getPlayerDetail($p, 'loccountrycode');
+            }
+        } else {
+            $this->persona_name = Helpers_Strings::getString("ANONYMOUS");
+            $this->avatar = Helpers_Dota::getUnknownProfile(0);
+            $this->avatar_medium = Helpers_Dota::getUnknownProfile(1);
+            $this->avatar_full = Helpers_Dota::getUnknownProfile(2);
         }
+            
     }
     
     public function personaName() {
