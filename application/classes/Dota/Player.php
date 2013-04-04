@@ -1,95 +1,140 @@
 <?php
 class Dota_Player {
-    var $persona_name;
-    var $steam_id;
-    var $visibility_state;
-    var $profile_state;
-    var $last_log_off;
-    var $profile_url;
-    var $avatar;
-    var $avatar_medium;
-    var $avatar_full;
-    var $persona_state;
-    var $real_name;
-    var $primary_clan_id;
-    var $time_created;
-    var $loc_country_code;
+    var $user;
+    var $account_id;
+    var $player_slot;
+    var $hero_id;
+    var $item_0;
+    var $item_1;
+    var $item_2;
+    var $item_3;
+    var $item_4;
+    var $item_5;
+    var $kills;
+    var $deaths;
+    var $assists;
+    var $leaver_status;
+    var $gold;
+    var $last_hits;
+    var $denies;
+    var $gold_per_min;
+    var $xp_per_min;
+    var $gold_spent;
+    var $hero_damage;
+    var $tower_damage;
+    var $hero_healing;
+    var $level;
     
-    public function __construct($id) {
-        $player = Helpers_Dota::getPlayerSummaries($id);
+    public function __construct($player) {
+        $this->user = new Dota_User($player->account_id);
+        $this->account_id = $player->account_id;
+        $this->player_slot = $player->player_slot;
+        $this->hero_id = $player->hero_id;
+        $this->item_0 = $player->item_0;
+        $this->item_1 = $player->item_1;
+        $this->item_2 = $player->item_2;
+        $this->item_3 = $player->item_3;
+        $this->item_4 = $player->item_4;
+        $this->item_5 = $player->item_5;
+        $this->kills = $player->kills;
+        $this->deaths = $player->deaths;
+        $this->assists = $player->assists;
+        $this->leaver_status = $player->leaver_status;
+        $this->gold = $player->gold;
+        $this->last_hits = $player->last_hits;
+        $this->denies = $player->denies;
+        $this->gold_per_min = $player->gold_per_min;
+        $this->xp_per_min = $player->xp_per_min;
+        $this->gold_spent = $player->gold_spent;
+        $this->hero_damage = $player->hero_damage;
+        $this->tower_damage = $player->tower_damage;
+        $this->hero_healing = $player->hero_healing;
+        $this->level = $player->level;
+    }
+    
+    public function user() {
+        return $this->user;
+    }
+    
+    public function accountID() {
+        return $this->account_id;
+    }
+    
+    public function playerSlot() {
+        return $this->player_slot;
+    }
+    
+    public function heroID() {
+        return $this->hero_id;
+    }
+    
+    public function items() {
+        $items = array(
+            $this->item_0,
+            $this->item_1,
+            $this->item_2,
+            $this->item_3,
+            $this->item_4,
+            $this->item_5
+        );
         
-        foreach($player as $p) {
-            $this->persona_name = Helpers_Dota::getPlayerDetail($p, 'personaname');
-            $this->steam_id = Helpers_Dota::getPlayerDetail($p, 'steamid');
-            $this->visibility_state = Helpers_Dota::getPlayerDetail($p, 'communityvisibilitystate');
-            $this->profile_state = Helpers_Dota::getPlayerDetail($p, 'profilestate');
-            $this->last_log_off = Helpers_Dota::getPlayerDetail($p, 'lastlogoff');
-            $this->profile_url = Helpers_Dota::getPlayerDetail($p, 'profileurl');
-            $this->avatar = Helpers_Dota::getPlayerDetail($p, 'avatar');
-            $this->avatar_medium = Helpers_Dota::getPlayerDetail($p, 'avatarmedium');
-            $this->avatar_full = Helpers_Dota::getPlayerDetail($p, 'avatarfull');
-            $this->persona_state = Helpers_Dota::getPlayerDetail($p, 'personastate');
-            $this->real_name = Helpers_Dota::getPlayerDetail($p, 'realname');
-            $this->primary_clan_id = Helpers_Dota::getPlayerDetail($p, 'primaryclanid');
-            $this->time_created = Helpers_Dota::getPlayerDetail($p, 'timecreated');
-            $this->loc_country_code = Helpers_Dota::getPlayerDetail($p, 'loccountrycode');
-        }
+        return $items;
     }
     
-    public function getPersonaName() {
-        return $this->persona_name;
+    public function kills() {
+        return $this->kills;
     }
     
-    public function getSteamID() {
-        return $this->steam_id;
+    public function deaths() {
+        return $this->deaths;
     }
     
-    public function getVisibilityState() {
-        return $this->visibility_state;
+    public function assists() {
+        return $this->assists;
     }
     
-    public function getProfileState() {
-        return $this->profile_state;
+    public function leaverStatus() {
+        return $this->leaver_status;
     }
     
-    public function getLastLogOff() {
-        return $this->last_log_off;
+    public function gold() {
+        return $this->gold;
     }
     
-    public function getProfileURL() {
-        return $this->profile_url;
+    public function lastHits() {
+        return $this->last_hits;
     }
     
-    public function getAvatar() {
-        return $this->avatar;
+    public function denies() {
+        return $this->denies;
     }
     
-    public function getAvatarMedium() {
-        return $this->avatar_medium;
+    public function goldPerMinute() {
+        return $this->gold_per_min;
     }
     
-    public function getAvatarFull() {
-        return $this->avatar_full;
+    public function xpPerMinute() {
+        return $this->xp_per_min;
     }
     
-    public function getPersonaState() {
-        return $this->persona_state;
+    public function goldSpent() {
+        return $this->gold_spent;
     }
     
-    public function getRealName() {
-        return $this->real_name;
+    public function heroDamage() {
+        return $this->hero_damage;
     }
     
-    public function getPrimaryClanID() {
-        return $this->primary_clan_id;
+    public function towerDamage() {
+        return $this->tower_damage;
     }
     
-    public function getTimeCreated() {
-        return $this->time_created;
+    public function heroHealing() {
+        return $this->hero_healing;
     }
     
-    public function getCountryCode() {
-        return $this->loc_country_code;
+    public function level() {
+        return $this->level;
     }
 }
 ?>
