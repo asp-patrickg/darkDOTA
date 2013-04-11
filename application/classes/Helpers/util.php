@@ -146,8 +146,50 @@ class Helpers_Util {
     public static function getMatchTable($headers = array(), $data = array(), $extra = null) {
         $table = "<table border=\"0\" cellpadding=\"5\"><tr>";
         
-        foreach($headers as $header) {
-            $table .= "<th class=\"header center\">{$header}</th>";
+        foreach($headers as $i => $header) {
+            switch($i) {
+                case 0:
+                    $class = "th180";
+                    break;
+                case 1:
+                    $class = "th200";
+                    break;
+                case 2:
+                    $class = "th30";
+                    break;
+                case 3:
+                    $class = "th20";
+                    break;
+                case 4:
+                    $class = "th20";
+                    break;
+                case 5:
+                    $class = "th20";
+                    break;
+                case 6:
+                    $class = "th50";
+                    break;
+                case 7:
+                    $class = "th30";
+                    break;
+                case 8:
+                    $class = "th30";
+                    break;
+                case 9:
+                    $class = "th40";
+                    break;
+                case 10:
+                    $class = "th40";
+                    break;
+                case 11:
+                    $class = "th340";
+                    break;
+                default:
+                    $class = "th100";
+                    break;
+            }
+            
+            $table .= "<th class=\"header center {$class}\">{$header}</th>";
         }
         
         $table .= "</tr>";
@@ -160,11 +202,14 @@ class Helpers_Util {
             } else {
                 $href = $row['player_url'];
             }
-            
+            $items = "";
+            for($x = 0; $x < 6; $x++) {
+                $items .= "<img class=\"img24 items\" src=\"http://media.steampowered.com/apps/dota2/images/items/power_treads_lg.png\" />";
+            }
             $table .= "
                 <tr class=\"{$rowClass}\">
                     <td><a href=\"{$href}\"><div class=\"image\"><img class=\"img24\" src=\"{$row['player_avatar']}\" alt=\"{$row['player']}\" title=\"{$row['player']}\" /></div><div class=\"name\">{$row['player']}</div></a></td>
-                    <td><img class=\"img24\" src=\"{$row['hero_image']}\" alt=\"{$row['hero']}\" title=\"{$row['hero']}\" /> {$row['hero']}</td>
+                    <td><a href=\"#\"><div class=\"image\"><img class=\"img24\" src=\"{$row['hero_image']}\" alt=\"{$row['hero']}\" title=\"{$row['hero']}\" /></div><div class=\"name\">{$row['hero']}</div></a></td>
                     <td class=\"center\">{$row['level']}</td>
                     <td class=\"center\">{$row['kills']}</td>
                     <td class=\"center\">{$row['deaths']}</td>
@@ -174,7 +219,7 @@ class Helpers_Util {
                     <td class=\"center\">{$row['denies']}</td>
                     <td class=\"center\">{$row['xp_per_min']}</td>
                     <td class=\"center\">{$row['gold_per_min']}</td>
-                    <td>{$row['items']}</td>
+                    <td>{$items}</td>
                 </tr>";
         }
         

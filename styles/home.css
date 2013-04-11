@@ -12,6 +12,21 @@ body {
     background-color: #000000;
 }
 
+.radiantcolor, .direcolor {
+    text-align: center;
+    font-weight: 800 !important;
+    text-shadow: 1px 1px 5px #000000;
+    
+}
+
+.radiantcolor {
+    color: #92A525;
+}
+
+.direcolor {
+    color: #C23C2A;
+}
+
 a {
     text-decoration: none;
 }
@@ -55,6 +70,34 @@ th.header {
     color: #FFFFFF;
 }
 
+.th340px {
+    width: 340px;
+}
+
+.th200 {
+    width: 200px;
+}
+
+.th180 {
+    width: 180px;
+}
+
+.th50 {
+    width: 50px;
+}
+
+.th40 {
+    width: 40px;
+}
+
+.th30 {
+    width: 30px;
+}
+
+.th20 {
+    width: 20px;
+}
+
 td {
     border: none;
 }
@@ -64,6 +107,7 @@ td {
 }
 
 .name {
+    font-weight: bold;
     vertical-align: middle;
     padding-left: 7px;
 }
@@ -74,6 +118,10 @@ td {
 
 .img32 {
     height: 32px;
+}
+
+.items {
+    padding: 0 2px 0 2px;
 }
 
 .even {

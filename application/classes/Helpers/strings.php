@@ -4,6 +4,8 @@
  */
 define("APP_NAME", "darkDOTA");
 define("ANONYMOUS", "Anonymous");
+define("WIN_RADIANT", "Radiant Win");
+define("WIN_DIRE", "Dire Win");
 
 /**
  * Footer Strings
