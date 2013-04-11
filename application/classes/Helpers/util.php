@@ -8,7 +8,7 @@ class Helpers_Util {
      * @return String
      */
     public static function getLogoLink() {
-        return "resources/darkdota-banner.png";
+        return URL::base() . "resources/darkdota-banner.png";
     }
     
     /**
@@ -153,9 +153,15 @@ class Helpers_Util {
         $table .= "</tr>";
         
         foreach($data as $row) {
+            if($row['player'] == Helpers_Strings::getString("ANONYMOUS")) {
+                $player = "<img src=\"{$row['player_avatar']}\" alt=\"{$row['player']}\" title=\"{$row['player']}\" /> {$row['player']}";
+            } else {
+                $player = "<a href=\"{$row['player_url']}\"><img src=\"{$row['player_avatar']}\" alt=\"{$row['player']}\" title=\"{$row['player']}\" /> {$row['player']}</a>";
+            }
+            
             $table .= "
                 <tr>
-                    <td><img src=\"{$row['player_avatar']}\" alt=\"{$row['player']}\" title=\"{$row['player']}\" /> {$row['player']}</td>
+                    <td>{$player}</td>
                     <td><img src=\"{$row['hero_image']}\" alt=\"{$row['hero']}\" title=\"{$row['hero']}\" /> {$row['hero']}</td>
                     <td>{$row['level']}</td>
                     <td>{$row['kills']}</td>

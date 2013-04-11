@@ -122,6 +122,7 @@ class Dota_Match {
             $row = array(
                 'player' => $player->user->persona_name,
                 'player_avatar' => $player->user->avatar,
+                'player_url' => $player->user->profile_url,
                 'hero' => Helpers_Dota::getHeroName($player->hero_id),
                 'hero_image' => Helpers_Dota::getHeroImage($player->hero_id, false),
                 'level' => $player->level,

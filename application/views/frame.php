@@ -39,7 +39,9 @@
                         /**
                          * This is where you will put the body of the page. (text, pictures, forms, videos, etc.)
                          */
-                        echo View::factory("sub/".$post['sub']);
+                        $view = View::factory("sub/{$post['sub']}");
+                        $view->post = $post;
+                        echo $view;
                         ?>
                     </div>
                     <div class="advertisement_box">

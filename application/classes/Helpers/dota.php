@@ -359,7 +359,7 @@ class Helpers_Dota {
      * @return String 
      */
     private static function steamIDToString($id) {
-        return "" . $id . "";
+        return "{$id}";
     }
     
     /**
@@ -457,14 +457,14 @@ class Helpers_Dota {
     public static function getUnknownProfile($size = 0) {
         switch($size) {
             case 1:
-                return "resources/unknown_medium.png";
+                return URL::base() . "resources/unknown_medium.png";
                 break;
             case 2:
-                return "resources/unknown_full.png";
+                return URL::base() . "resources/unknown_full.png";
                 break;
             case 0:
             default:
-                return "resources/unknown.png";
+                return URL::base() . "resources/unknown.png";
                 break;
         }
     }
