@@ -51,7 +51,10 @@ class Dota_Match {
             if(is_null($session->get("player{$this->match_id}{$player->account_id}"))) {
                 $pl = new Dota_Player($player);
                 $players[] = $pl;
-                $session->set("player{$this->match_id}{$player->account_id}", $pl);
+                
+                if($player->account_id != "4294967295") {
+                    $session->set("player{$this->match_id}{$player->account_id}", $pl);
+                }
             } else {
                 $players[] = $session->get("player{$this->match_id}{$player->account_id}");
             }
