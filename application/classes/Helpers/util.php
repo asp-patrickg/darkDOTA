@@ -134,5 +134,64 @@ class Helpers_Util {
         $r = rand($min, $max);
         return $ads[$r];
     }
+    
+    /**
+     * Returns an HTML table with the headers and all the data.
+     * 
+     * @param array $headers
+     * @param array $data
+     * @param array $extra
+     * @return String 
+     */
+    public static function getTable($headers = array(), $data = array(), $extra = null) {
+        $table = "<table><tr>";
+        
+        foreach($headers as $header) {
+            $table .= "<th>{$header}</th>";
+        }
+        
+        $table .= "</tr>";
+        
+        foreach($data as $row) {
+            $table .= "<tr>";
+            
+            foreach($row as $k => $v) {
+                var_dump($k);
+                echo "<br /><br />";
+            }
+            
+            $table .= "</tr>";
+        }
+        
+        $footer = count($headers);
+        $table .= "<tr><th colspan=\"{$footer}\"></th></tr>";
+        $table .= "</table>";
+        
+        return $table;
+    }
+    
+    /**
+     * Gets the standard match table headers.
+     * 
+     * @return String 
+     */
+    public static function getMatchTableHeaders() {
+        $headers = array(
+            "Player",
+            "Hero",
+            "Level",
+            "K",
+            "D",
+            "A",
+            "Gold",
+            "LH",
+            "DN",
+            "XPM",
+            "GPM",
+            "Items"
+        );
+        
+        return $headers;
+    }
 }
 ?>

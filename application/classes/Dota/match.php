@@ -16,22 +16,30 @@ class Dota_Match {
     var $game_mode;
     
     public function __construct($id) {
-        $match = Helpers_Dota::getMatchDetails($id);
-        
-        $this->players = $match->players;
-        $this->season = $match->season;
-        $this->radiant_win = $match->radiant_win;
-        $this->duration = $match->duration;
-        $this->match_seq_num = $match->match_seq_num;
-        $this->tower_status_radiant = $match->tower_status_radiant;
-        $this->tower_status_dire = $match->tower_status_dire;
-        $this->barracks_status_radiant = $match->barracks_status_radiant;
-        $this->barracks_status_dire = $match->barracks_status_dire;
-        $this->lobby_type = $match->lobby_type;
-        $this->leagueid = $match->leagueid;
-        $this->positive_votes = $match->positive_votes;
-        $this->negative_votes = $match->negative_votes;
-        $this->game_mode = $match->game_mode;
+        //Check if the match is already in the session.
+        $session = Session::instance();
+        if($session->get("match{$id}") == null) {
+            $match = Helpers_Dota::getMatchDetails($id);
+            
+            $this->players = $match->players;
+            $this->season = $match->season;
+            $this->radiant_win = $match->radiant_win;
+            $this->duration = $match->duration;
+            $this->match_seq_num = $match->match_seq_num;
+            $this->tower_status_radiant = $match->tower_status_radiant;
+            $this->tower_status_dire = $match->tower_status_dire;
+            $this->barracks_status_radiant = $match->barracks_status_radiant;
+            $this->barracks_status_dire = $match->barracks_status_dire;
+            $this->lobby_type = $match->lobby_type;
+            $this->leagueid = $match->leagueid;
+            $this->positive_votes = $match->positive_votes;
+            $this->negative_votes = $match->negative_votes;
+            $this->game_mode = $match->game_mode;
+            
+            $session->set("match{$id}", $this);
+        } else {
+            return $session->get("match{$id}");
+        }
     }
     
     public function players() {
