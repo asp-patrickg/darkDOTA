@@ -8,7 +8,7 @@ class Helpers_Util {
      * @return String
      */
     public static function getLogoLink() {
-        return URL::base() . "resources/darkdota-banner.png";
+        return "resources/darkdota-banner.png";
     }
     
     /**
@@ -144,34 +144,36 @@ class Helpers_Util {
      * @return String 
      */
     public static function getMatchTable($headers = array(), $data = array(), $extra = null) {
-        $table = "<table><tr>";
+        $table = "<table border=\"0\" cellpadding=\"5\"><tr>";
         
         foreach($headers as $header) {
-            $table .= "<th>{$header}</th>";
+            $table .= "<th class=\"header center\">{$header}</th>";
         }
         
         $table .= "</tr>";
         
-        foreach($data as $row) {
+        foreach($data as $i => $row) {
+            $rowClass = $i%2 == 0 ? "even" : "odd";
+            
             if($row['player'] == Helpers_Strings::getString("ANONYMOUS")) {
-                $player = "<img src=\"{$row['player_avatar']}\" alt=\"{$row['player']}\" title=\"{$row['player']}\" /> {$row['player']}";
+                $href = "#";
             } else {
-                $player = "<a href=\"{$row['player_url']}\"><img src=\"{$row['player_avatar']}\" alt=\"{$row['player']}\" title=\"{$row['player']}\" /> {$row['player']}</a>";
+                $href = $row['player_url'];
             }
             
             $table .= "
-                <tr>
-                    <td>{$player}</td>
-                    <td><img src=\"{$row['hero_image']}\" alt=\"{$row['hero']}\" title=\"{$row['hero']}\" /> {$row['hero']}</td>
-                    <td>{$row['level']}</td>
-                    <td>{$row['kills']}</td>
-                    <td>{$row['deaths']}</td>
-                    <td>{$row['assists']}</td>
-                    <td>{$row['gold']}</td>
-                    <td>{$row['last_hits']}</td>
-                    <td>{$row['denies']}</td>
-                    <td>{$row['xp_per_min']}</td>
-                    <td>{$row['gold_per_min']}</td>
+                <tr class=\"{$rowClass}\">
+                    <td><a href=\"{$href}\"><div class=\"image\"><img class=\"img24\" src=\"{$row['player_avatar']}\" alt=\"{$row['player']}\" title=\"{$row['player']}\" /></div><div class=\"name\">{$row['player']}</div></a></td>
+                    <td><img class=\"img24\" src=\"{$row['hero_image']}\" alt=\"{$row['hero']}\" title=\"{$row['hero']}\" /> {$row['hero']}</td>
+                    <td class=\"center\">{$row['level']}</td>
+                    <td class=\"center\">{$row['kills']}</td>
+                    <td class=\"center\">{$row['deaths']}</td>
+                    <td class=\"center\">{$row['assists']}</td>
+                    <td class=\"center\">{$row['gold']}</td>
+                    <td class=\"center\">{$row['last_hits']}</td>
+                    <td class=\"center\">{$row['denies']}</td>
+                    <td class=\"center\">{$row['xp_per_min']}</td>
+                    <td class=\"center\">{$row['gold_per_min']}</td>
                     <td>{$row['items']}</td>
                 </tr>";
         }
