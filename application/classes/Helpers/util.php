@@ -143,7 +143,7 @@ class Helpers_Util {
      * @param array $extra
      * @return String 
      */
-    public static function getTable($headers = array(), $data = array(), $extra = null) {
+    public static function getMatchTable($headers = array(), $data = array(), $extra = null) {
         $table = "<table><tr>";
         
         foreach($headers as $header) {
@@ -153,14 +153,21 @@ class Helpers_Util {
         $table .= "</tr>";
         
         foreach($data as $row) {
-            $table .= "<tr>";
-            
-            foreach($row as $k => $v) {
-                var_dump($k);
-                echo "<br /><br />";
-            }
-            
-            $table .= "</tr>";
+            $table .= "
+                <tr>
+                    <td><img src=\"{$row['player_avatar']}\" alt=\"{$row['player']}\" title=\"{$row['player']}\" /> {$row['player']}</td>
+                    <td><img src=\"{$row['hero_image']}\" alt=\"{$row['hero']}\" title=\"{$row['hero']}\" /> {$row['hero']}</td>
+                    <td>{$row['level']}</td>
+                    <td>{$row['kills']}</td>
+                    <td>{$row['deaths']}</td>
+                    <td>{$row['assists']}</td>
+                    <td>{$row['gold']}</td>
+                    <td>{$row['last_hits']}</td>
+                    <td>{$row['denies']}</td>
+                    <td>{$row['xp_per_min']}</td>
+                    <td>{$row['gold_per_min']}</td>
+                    <td>{$row['items']}</td>
+                </tr>";
         }
         
         $footer = count($headers);
