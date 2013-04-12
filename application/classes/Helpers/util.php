@@ -202,10 +202,14 @@ class Helpers_Util {
             } else {
                 $href = $row['player_url'];
             }
+            
             $items = "";
-            for($x = 0; $x < 6; $x++) {
-                $items .= "<img class=\"img24 items\" src=\"http://media.steampowered.com/apps/dota2/images/items/power_treads_lg.png\" />";
+            $playerItems = $row['items'];
+            foreach($playerItems as $item) {
+                $img = Helpers_Dota::getItemImage($item);
+                $items .= $img;
             }
+            
             $table .= "
                 <tr class=\"{$rowClass}\">
                     <td><a href=\"{$href}\"><div class=\"image\"><img class=\"img24\" src=\"{$row['player_avatar']}\" alt=\"{$row['player']}\" title=\"{$row['player']}\" /></div><div class=\"name\">{$row['player']}</div></a></td>

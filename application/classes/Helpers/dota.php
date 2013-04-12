@@ -454,6 +454,12 @@ class Helpers_Dota {
         }
     }
     
+    /**
+     * Gets the Unknown Profile Picture. (?)
+     * 
+     * @param int $size
+     * @return String 
+     */
     public static function getUnknownProfile($size = 0) {
         switch($size) {
             case 1:
@@ -466,6 +472,58 @@ class Helpers_Dota {
             default:
                 return URL::base() . "resources/unknown.png";
                 break;
+        }
+    }
+    
+    /**
+     * Gets the image for no item.
+     * 
+     * @return String 
+     */
+    private static function getNoItemImage() {
+        return URL::base() . "resources/no_item.png";
+    }
+    
+    /**
+     * Gets the image for recipe.
+     * 
+     * @return String 
+     */
+    private static function getRecipeItemImage() {
+        return URL::base() . "resources/recipe.png";
+    }
+    
+    /**
+     * Gets the item's image.
+     * 
+     * @param int $key
+     * @param boolean $large
+     * @return String 
+     */
+    public static function getItemImage($key, $large = true) {
+        $session = Session::instance();
+        $items = is_null($session->get('items')) ? new Dota_Items() : $session->get('items');
+        
+        if($key != 0) {
+            foreach($items as $item) {
+                if($item->id == $key) {
+                    $name = $items[$key]->name;
+                    $displayName = ucwords(trim(str_replace("recipe", "", str_replace("_", " ", $name))));
+                    $size = $large ? "lg" : "eg";
+                    return "<img class=\"img24 items\" src=\"http://media.steampowered.com/apps/dota2/images/items/{$name}_{$size}.png\" alt=\"{$displayName}\" title=\"{$displayName}\" />";
+                } else {
+                    continue;
+                }
+            }
+            
+            //Recipe Image
+            $url = Helpers_Dota::getRecipeItemImage();
+            $recipe = Helpers_Strings::getString("RECIPE");
+            return "<img class=\"img24 items\" src=\"{$url}\" alt=\"{$recipe}\" title=\"{$recipe}\" />";
+        } else {
+            $url = Helpers_Dota::getNoItemImage();
+            $empty = Helpers_Strings::getString("EMPTY");
+            return "<img class=\"img24 items\" src=\"{$url}\" alt=\"{$empty}\" title=\"{$empty}\" />";
         }
     }
 }

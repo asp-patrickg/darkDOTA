@@ -134,7 +134,7 @@ class Dota_Match {
                 'denies' => $player->denies,
                 'xp_per_min' => $player->xp_per_min,
                 'gold_per_min' => $player->gold_per_min,
-                'items' => "TO-DO"
+                'items' => $player->items()
             );
 
             $data[] = $row;
