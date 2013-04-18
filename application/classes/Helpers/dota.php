@@ -507,7 +507,7 @@ class Helpers_Dota {
         if($key != 0) {
             foreach($items as $item) {
                 if($item->id == $key) {
-                    $name = $items[$key]->name;
+                    $name = $item->name;
                     $displayName = ucwords(trim(str_replace("recipe", "", str_replace("_", " ", $name))));
                     $size = $large ? "lg" : "eg";
                     return "<img class=\"img24 items\" src=\"http://media.steampowered.com/apps/dota2/images/items/{$name}_{$size}.png\" alt=\"{$displayName}\" title=\"{$displayName}\" />";
